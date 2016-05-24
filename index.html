@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HSlider Demo</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+		<link rel="stylesheet" type="text/css" href="style/hslider.min.css">
+	</head>
+	<body>
+		<div class='container'>
+			<header class='header'>
+				<div class='header-container'>
+					<h1>H-Slider</h1>
+				</div>
+			</header>
+			<div class='hslider'>
+				<!-- content for the slider will be loaded here -->
+				<ul class="hslider-parent-container" style="width: 3000px; height: 350px; left: -600px;">
+					<li class="hslide selected" style="width: 600px;"><div class="parent-container"><img src="img/1.jpg"></div></li>
+					<li class="hslide" style="width: 600px;"><div class="parent-container"><img src="img/2.jpg"></div></li>
+					<li class="hslide" style="width: 600px;"><div class="parent-container"><img src="img/3.jpg"></div></li>
+				</ul>
+			</div>
+			<div class='params-container'>
+				<p class='section-title'>//basic params</p>
+				<div class='param-definition'>slideSpeed: 3000, <span>//sliding pauses for slideSpeed value, in milliseconds</span></div>
+				<div class='param-definition'>transitionSpeed: 500, <span>//sliding transition speed at which the transition happens, in milliseconds</span></div>
+				<div class='param-definition'>autoSlide: true, <span>//set as true if sliding is to begin on load</span></div>
+				<div class='param-definition'>slidesOnView: 2, <span>//set a value to show the number of slides in current view</span></div>
+				<div class='param-definition'>shiftSlides: 2, <span>//shift the number of slides per carousel shift</span></div>
+				<div class='param-definition'>scrollDirection: 'right', <span>// direction of the scroll to happen</span></div>
+				<div class='param-definition'>height: 350, <span>//set the height as required</span></div>
+				<div class='param-definition'>width: 600, <span>//set the width as required</span></div>
+				<div class='param-definition'>currentSlide: 0, <span>// current slide index</span></div>
+				<div class='param-definition'>transitionStyle: 'slide', <span>//currently animations added - ["fade", "slide"]</span></div>
+				
+				<p class='section-title'>// data</p>
+				<div class='param-definition'>imagesArrayProvided: false, <span>//set true if you pass the images src through an array for hslider to build, if false, picks the ul-li structure from the parentTagClass info provided</span></div>
+				<div class='param-definition'>imagesArray: [], <span>//array of images to be rendered in the container</span></div>
+				<div class='param-definition'>showThumbnails: false, <span>//set true if thumbnails are required</span></div>
+				<div class='param-definition'>captionNeeded: false, <span>//set as true if a section dedicated to captions is required</span></div>
+				<div class='param-definition'>captionContentList: [], <span>//array of strings of HTML  or normal text to be added as caption //controls</span></div>
+				
+				<p class='section-title'>// controls</p>
+				<div class='param-definition'>controls: true, <span>//set as true if visual controls for next and previous slides are required</span></div>
+				<div class='param-definition'>pauseSlideOnHover: true, <span>//pause slide when mouse hover occurs on the slide</span></div>
+				<div class='param-definition'>pauseButtonNeeded: true, <span>//set as true if you need a button to pause the slider until required</span></div>
+				<div class='param-definition'>pausePlayButtonElement: 'a', <span>//the tag used as the pause / play button element,</span></div>
+				<div class='param-definition'>pauseButtonText: 'Pause', <span>//set the text value as required when pausing is required</span></div>
+				<div class='param-definition'>pauseButtonText: 'Play', <span>//set the text value as required when playing is required</span></div>
+				
+				<p class='section-title'>// containers</p>
+				<div class='param-definition'>parentTag: 'div', <span>//the parent tag under the each LI tag</span></div>
+				<div class='param-definition'>parentTagClass: 'parent-container', <span>//class for the parent tag</span></div>
+				<div class='param-definition'>captionContainerClass: 'captions-container', <span>//class of the captions container added in the list</span></div>
+				<div class='param-definition'>prevButtonClass: 'prevButton', <span>//class of the "previous" button in the view</span></div>
+				<div class='param-definition'>nextButtonClass: 'nextButton', <span>//class of the "next" button in the view</span></div>
+				
+				<p class='section-title'>// methods</p>
+				<div class='param-definition'>onSlideLoad: function() {}, <span>//method called on load of the slides</span></div>
+				<div class='param-definition'>beforeSlideShift: function() {}, <span>//method called before each slide shift</span></div>
+				<div class='param-definition'>afterSlideShift: function() {}, <span>//method called after each slice shift</span></div>
+				<div class='param-definition'>previousSlideShift: function() {}, <span>//method called for previous button click</span></div>
+				<div class='param-definition'>nextSlideShift: function() {}, <span>//method called for next button click,</span></div>
+				<div class='param-definition'>resizeSlideShift: function() {} <span>//method to handle resize of the window</span></div>
+				<div class='param-definition'>thumbnailClick: function() {} <span>//method to handle thumbnail clicks</span></div>
+			</div>
+		<script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+		<script src='js/hslider.min.js'></script>
+		<script>
+			//implementation code goes here
+			$(document).ready(function () {
+				$('.hslider').hslider({
+					 imagesArrayProvided: true,
+					 imagesArray: ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg', 'img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg'],
+					 slidesOnView: 1,
+					 autoSlide: true,
+					 showThumbnails: true,
+					 captionNeeded: true,
+					 captionContentList: ['1 Girl Walking Randomly', '2 Street', '3 Dish', '4 People in Dinner', '5 Spices', 
+										 '6 Girl Walking Randomly', '7 Street', '8 Dish', '9 People in Dinner', '10 Spices'],
+				});
+			 });
+		</script>
+	</body>
+</html>
